@@ -1,0 +1,226 @@
+﻿@model EasyWayGroceries.Models.RegistrationModel
+
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/HomeStyle.css" />
+</head>
+<body onload="ShowLogin()">
+    <div class="modal fade" id="ShowRegistration" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="~/images/fruit.png" class="fruitlogo" />
+                    <img src="~/images/Logo.jpg" class="imagelogo" />
+                    <form id="RegistrationForm">
+                        <div class="form-group">
+                            <span id="RegError"></span>
+
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input class="form-control" type="text" name="Username" id="RegUserName" placeholder="Username" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input class="form-control" type="email" name="Email" id="RegEmail" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name="Password" id="RegPassword" placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name="ConfirmPassword" id="RegConfirmPassword" placeholder="Confirm Password" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-info form-control" id="RegButton" name="SignUp" onclick="DoRegistration()">SignUp</button>
+                        </div>
+                    </form>
+                    <div class="form-group" id="LoginLink">
+                        <label>Already Have Account?</label>
+                        <a style="cursor:pointer" onclick="ShowLogin()">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="ShowLogin" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img src="~/images/fruit.png" class="fruitlogo" />
+                    <img src="~/images/Logo.jpg" class="imagelogo" />
+                    <form id="LoginForm">
+                        <div class="form-group">
+                            <span id="LoginError"></span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input class="form-control" type="email" name="Email" id="LoginEmail" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input class="form-control" type="password" name="Password" id="LoginPassword" placeholder="Password" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-info form-control" id="LoginButton" type="button" name="Login" onclick="DoLogin()">Login</button>
+                        </div>
+                    </form>
+                    <div class="form-group" id="RegistrationLink">
+                        <label>Don't have Account?</label>
+                        <a style="cursor:pointer" onclick="ShowRegistration()">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var loginForm = document.getElementById("LoginForm");
+        var registrationForm = document.getElementById("RegistrationForm");
+        //login
+        var loginEmail = document.getElementById("LoginEmail");
+        var loginPassword = document.getElementById("LoginPassword");
+        var loginError = document.getElementById("LoginError");
+       
+
+        //registartion
+        var regUserName = document.getElementById("RegUserName");
+        var regEmail = document.getElementById("RegEmail");
+        var regPassword = document.getElementById("RegPassword");
+        var regConfirmPassword = document.getElementById("RegConfirmPassword");
+        var regError = document.getElementById("RegError");
+       
+        function ShowRegistration() {
+            regError.style.display = "none";
+            $("#ShowRegistration").modal();
+            $("#ShowLogin").modal('hide')
+            loginForm.reset();
+        }
+        function ShowLogin() {
+            loginError.style.display = "none";
+            $("#ShowLogin").modal();
+            $("#ShowRegistration").modal('hide');
+            registrationForm.reset();
+
+        }    
+        //--------------------LOGIN--------------------
+        function DoLogin() {
+            loginError.style.display = "none";
+
+            if (loginEmail.value == "") {
+                loginEmail.focus();
+                loginError.style.display = "block";
+                loginError.innerHTML = "Please enter Email!";
+            }
+            else if (!validateEmail(loginEmail.value)) {
+                loginEmail.focus();
+                loginError.style.display = "block";
+                loginError.innerHTML = "Invalid Email!";
+            }
+            else if (loginPassword.value == "") {
+                loginPassword.focus();
+                loginError.style.display = "block";
+                loginError.innerHTML = "Please enter Password!";
+            }
+            else {
+                document.body.style.cursor = 'wait';
+                var data = { EmailId: $("#LoginEmail").val(), Password: $("#LoginPassword").val() };
+                $.ajax({
+                    type: 'post',
+                    data: data,
+                    dataType: "json",
+                    url: "/Home/Login",
+                    success: function (result) {
+                        if (result == "Success") {
+                            document.body.style.cursor = 'default';
+                             window.location = "/Dashboard/Welcome"
+                        }
+                        else {
+                            document.body.style.cursor = 'default';
+                            loginError.style.display = "block";
+                            loginError.innerHTML = "Incorrect Email or Password!";
+                            //alert("Incorrect Email Id or Password");
+                        }
+
+                    }
+                });
+            }
+        }
+        //------------------------REGISTRATION-----------------------
+        function DoRegistration() {
+            regError.style.display = "none";
+            if (regUserName.value == "") {
+                regUserName.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Please enter User Name!";
+            }
+            else if (regEmail.value == "") {
+                regEmail.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Please enter Email!";
+            }
+            else if (!validateEmail(regEmail.value)) {
+                regEmail.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Invalid Email!";
+            }
+            else if (regPassword.value == "") {
+                regPassword.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Please enter Password!";
+            }
+            else if (regConfirmPassword.value == "") {
+                regConfirmPassword.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Please confirm Password!";
+            }
+            else if (regConfirmPassword.value != regPassword.value) {
+                regConfirmPassword.focus();
+                regError.style.display = "block";
+                regError.innerHTML = "Passwords do not match!";
+            }
+            else {
+                document.body.style.cursor = 'wait';
+                var data = { UserName: $("#RegUserName").val(), EmailId: $("#RegEmail").val(), Password: $("#RegPassword").val() };
+                $.ajax({
+                    type: 'post',
+                    data: data,
+                    dataType: 'json',
+                    url: "/Home/SaveRegistration",
+                    success: function (result) {
+                        if (result == "Duplicate") {
+                            document.body.style.cursor = 'default';
+                            regEmail.focus();
+                            regError.style.display = "block";
+                            regError.innerHTML = "Email already exist!";
+                        }
+                        else if (result == "Success") {
+                            document.body.style.cursor = 'default';
+                            alert("Registration successful! Click 'OK' to Login")
+                            ShowLogin();
+                        }
+                        else {
+                            document.body.style.cursor = 'default';
+                            alert(result);
+                        }
+                    }
+
+                });
+            }
+        }
+        //----------------EmailValidate-----------------------
+        function validateEmail(email) {
+            var expr = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+            return expr.test(email);
+        }
+
+    </script>
+</body>
+

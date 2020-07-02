@@ -1,0 +1,116 @@
+﻿:root {
+    --main_color: #ff9f00;
+}
+body {
+margin:0px;
+padding:0px;
+}
+
+.coverPicture {
+    background-repeat: no-repeat;
+    background-image: url('../images/CoverPicture.png');
+    background-size: 100% 100%;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+}
+#CartAccountNav {
+    background-color: var(--main_color);
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 5px;
+    overflow: hidden;
+}
+
+/*#AccountButton {
+    position:relative;
+    height: 36px;
+    width: 100px;
+    margin-right: 20px;
+    border: 1.5px solid #ffffff;
+    border-radius: 16px;
+    margin-top:5px;
+    
+}*/
+#cart {
+   position:relative;
+    height: 45px;
+    width: 45px;
+    margin-right: 30px;
+    border: 1.5px solid #ffffff;
+    border-radius: 25px;
+    background: var(--main_color);
+   
+}
+.topnav {
+    background-color: rgba(255,255,255,0.5);
+    overflow: hidden;
+    margin-top:10px;
+}
+
+.topnav-right {
+    display: flex;
+    vertical-align: middle;
+    margin: 5px;
+    float: right;
+}
+
+
+
+.AccountButton {
+    background-color: var(--main_color);
+    color: white;
+    padding: 5px;
+    height: 45px;
+    width: 100px;
+    font-size: 16px;
+    margin-right: 25px;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    border-radius: 16px;
+    outline: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 3px solid #fff;
+    border-radius:7px;
+    padding:3px;
+}
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        font-weight:normal;
+        font-size:17px;
+        display: block;
+    }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {
+            background-color:#e6e6e6;
+
+        }
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .AccountButton {
+    background-color: var(--main_color);
+}

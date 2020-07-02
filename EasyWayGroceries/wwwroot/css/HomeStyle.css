@@ -1,0 +1,59 @@
+﻿:root {
+    --main_color: #ff9f00;
+}
+
+body {
+    background-image: url("../images/we_deliver.jpg");
+}
+
+.imagelogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 150px;
+    margin-bottom: 30px;
+}
+
+.fruitlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 150px;
+    margin-top: 20px;
+}
+
+#RegButton, #LoginButton {
+    background-color: var(--main_color);
+    text-align: center;
+    height: 60px;
+    margin-top: 10px;
+    text-decoration-color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    outline: none;
+}
+
+.input-group {
+    margin: 15px;
+    height: 60px;
+}
+
+#RegUserName, #RegEmail, #RegPassword, #RegConfirmPassword, #LoginEmail, #LoginPassword {
+    height: 60px;
+    font-size: 18px;
+}
+
+#LoginLink, #RegistrationLink {
+    text-align: center;
+    font-size: 17px;
+}
+
+#LoginError, #RegError{
+    color: red;
+    text-align: center;
+    width: auto;
+    font-weight: bold;
+    font-size: 15px;
+}
