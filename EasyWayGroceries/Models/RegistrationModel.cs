@@ -14,7 +14,11 @@ namespace EasyWayGroceries.Models
         public string EmailId { get; set; }
         public string Password { get; set; }
         [NotMapped]
-        public string confirmPassword { get; set; }
+        public string confirmPassword { get; set; }  
+      
+        public int CustomerId { get; set; }  
+        public string IsVerified { get; set; } 
+        public String ActivationCode { get; set; }
 
     }
 }

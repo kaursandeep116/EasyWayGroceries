@@ -24,7 +24,7 @@ body {
     margin-top: 20px;
 }
 
-#RegButton, #LoginButton {
+#RegButton, #LoginButton,#ResetButton{
     background-color: var(--main_color);
     text-align: center;
     height: 60px;
@@ -40,20 +40,30 @@ body {
     height: 60px;
 }
 
-#RegUserName, #RegEmail, #RegPassword, #RegConfirmPassword, #LoginEmail, #LoginPassword {
+#RegUserName, #RegEmail, #RegPassword, #RegConfirmPassword, #LoginEmail, #LoginPassword, #ResetEmail, #ResetPassword, #ResetConfirmPassword {
     height: 60px;
     font-size: 18px;
 }
 
-#LoginLink, #RegistrationLink {
+#LoginLink, #RegistrationLink, #ResetLink {
     text-align: center;
     font-size: 17px;
 }
 
-#LoginError, #RegError{
+#LoginError, #RegError, #ResetError {
     color: red;
     text-align: center;
     width: auto;
     font-weight: bold;
     font-size: 15px;
 }
+#ShowRegistration, #ShowLogin, #ShowResetPassword {
+    overflow: scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+
+

@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[6.4.4, )"
             },
+            "Json.Net": {
+              "target": "Package",
+              "version": "[1.0.23, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",

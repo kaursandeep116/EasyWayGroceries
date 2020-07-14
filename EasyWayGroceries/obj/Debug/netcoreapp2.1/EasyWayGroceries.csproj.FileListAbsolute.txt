@@ -32,7 +32,6 @@ D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGrocer
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.pdb
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.genruntimeconfig.cache
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csproj.CopyComplete
-D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csproj.CoreCompileInputs.cache
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csproj.CoreCompileInputs.cache
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.RazorAssemblyInfo.cache
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.RazorAssemblyInfo.cs
@@ -72,5 +71,10 @@ D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\Registration.cshtml.g.cs
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csprojAssemblyReference.cache
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Welcome.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\_ViewStart.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\Activation.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\PasswordReset.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\_Dashboard_layout.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csproj.CoreCompileInputs.cache
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csprojAssemblyReference.cache
-D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Dashboard_layout.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\ProductDetails.cshtml.g.cs

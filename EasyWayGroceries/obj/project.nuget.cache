@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "D1RKWBx7i0EUUTURu6a28JEH8/p7pDiNUnWl53DadrPH6pI2sSBu+pt/hp9cI75Cew2Z1fJpnO2TpGqnDLlx5Q==",
+  "dgSpecHash": "c6tF0/zEDhRdC4N/xd52X2RQFc6BUd6xbNCsCgd39KNKnS9CiTQnjpWK2PLXmi3ky1IlpDbEH6wK37v+NNCz1A==",
   "success": true,
   "projectFilePath": "D:\\ComIT\\EasywayGroceries\\EasyWayGroceries\\EasyWayGroceries.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Dell\\.nuget\\packages\\json.net\\1.0.23\\json.net.1.0.23.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.1.1\\microsoft.aspnetcore.antiforgery.2.1.1.nupkg.sha512",

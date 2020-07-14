@@ -9,6 +9,15 @@
           "buildTransitive/EntityFramework.targets": {}
         }
       },
+      "Json.Net/1.0.23": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Json.Net.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Json.Net.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4681,6 +4690,18 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "Json.Net/1.0.23": {
+      "sha512": "gokTwC3OVatrIFwQBaooj6EV3+08ryFIqdfR6RP4K61x5uSschPmKHl5XppvgdD/lmfY9IYZIoBt8V5Y0SU0nQ==",
+      "type": "package",
+      "path": "json.net/1.0.23",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "json.net.1.0.23.nupkg.sha512",
+        "json.net.nuspec",
+        "lib/netstandard2.0/Json.Net.dll"
       ]
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -12680,6 +12701,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "EntityFramework >= 6.4.4",
+      "Json.Net >= 1.0.23",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.EntityFrameworkCore >= 2.1.1",
@@ -12696,11 +12718,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ComIT\\EasyWayGroceries\\EasyWayGroceries\\EasyWayGroceries.csproj",
+      "projectUniqueName": "D:\\ComIT\\EasywayGroceries\\EasyWayGroceries\\EasyWayGroceries.csproj",
       "projectName": "EasyWayGroceries",
-      "projectPath": "D:\\ComIT\\EasyWayGroceries\\EasyWayGroceries\\EasyWayGroceries.csproj",
+      "projectPath": "D:\\ComIT\\EasywayGroceries\\EasyWayGroceries\\EasyWayGroceries.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\ComIT\\EasyWayGroceries\\EasyWayGroceries\\obj\\",
+      "outputPath": "D:\\ComIT\\EasywayGroceries\\EasyWayGroceries\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -12734,6 +12756,10 @@
           "EntityFramework": {
             "target": "Package",
             "version": "[6.4.4, )"
+          },
+          "Json.Net": {
+            "target": "Package",
+            "version": "[1.0.23, )"
           },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",

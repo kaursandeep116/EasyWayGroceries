@@ -16,6 +16,8 @@ namespace EasyWayGroceries.Models
         {
 
          }
-     public DbSet<RegistrationModel> Registration { get; set; }
-  }
+     public DbSet<RegistrationModel> Registration { get; set; } 
+    public DbSet<ProductsModel> Products { get; set; } 
+    public DbSet<CustomerOrderModel> CustomerOrders { get; set; } 
+         }
 }

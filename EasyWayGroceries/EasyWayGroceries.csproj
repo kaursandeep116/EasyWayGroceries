@@ -11,12 +11,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Dashboard\Welcome.cshtml" />
+    <None Include="Views\Dashboard\_Dashboard_layout.cshtml" />
+    <None Include="Views\Dashboard\_ViewStart.cshtml" />
     <None Include="wwwroot\images\grocery.jpg" />
     <None Include="wwwroot\images\we_deliver.jpg" />
+    <None Include="wwwroot\ProductImages\11002.jpg" />
+    <None Include="wwwroot\ProductImages\11003.jpg" />
+    <None Include="wwwroot\ProductImages\11004.jpg" />
+    <None Include="wwwroot\ProductImages\11005.jpg" />
+    <None Include="wwwroot\ProductImages\4011.jpg" />
+    <None Include="wwwroot\ProductImages\4012.jpg" />
+    <None Include="wwwroot\ProductImages\4013.jpg" />
+    <None Include="wwwroot\ProductImages\4014.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Json.Net" Version="1.0.23" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
