@@ -19,5 +19,11 @@ namespace EasyWayGroceries.Models
      public DbSet<RegistrationModel> Registration { get; set; } 
     public DbSet<ProductsModel> Products { get; set; } 
     public DbSet<CustomerOrderModel> CustomerOrders { get; set; } 
-         }
+    public DbSet<CartDetails> CartDetails { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<CartDetails>().HasKey(ba => new { ba.CartNo, ba.ProductId });
+        }
+    }
 }

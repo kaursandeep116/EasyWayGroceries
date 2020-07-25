@@ -1,49 +1,69 @@
 ﻿@model EasyWayGroceries.Models.ProductsModel;
+
     <head>
         <link href="~/css/ProductDetailsStyle.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-<div id="header_div">
-</div>
-<div id="ContainerDiv">
-    <div id="leftDiv">
-        <img id="ProductImage" src="@Url.Content(Model.ImagePath)" />
+     </head>
 
-    </div>
-    <div id="rightDiv">
-
-        <label id="ProductName" data-toggle="modal">@Model.ProductName</label><br />
-        <div id="PriceUnitDiv">
-            <label id="Price">$@Model.Price per</label>
-            <label id="Unit"> @Model.Unit</label><br />
+    <body onload="checkCart();">
+        <div id="header_div">
         </div>
-        <label id="Desc">Description: @Model.Description</label><br />
-        <span id="QuantityError" style="display: none"></span>
-        <input class="form-control" type="number" name="quantity" id="Quantity" min="1" max="50" placeholder="Add Quantity" onkeyup="EditButton()"/>
-        <button type="button" class="btn btn-info form-control" id="AddCart" name="AddCart" onclick="AddItemToCart()">
-         Add to Cart</button>
-        <button type="button" class="btn btn-info form-control" id="GoBack" name="GoBack" onclick="GoBack()"> << Go Back To List</button>
-    </div>
-</div>
-<script>
+        <div id="ContainerDiv">
+            <div id="leftDiv">
+                <img id="ProductImage" src="@Url.Content(Model.ImagePath)" />
+
+            </div>
+            <div id="rightDiv">
+
+                <label id="ProductName" data-toggle="modal">@Model.ProductName</label><br />
+                <div id="PriceUnitDiv">
+                    <label id="Price">$@Model.Price per</label>
+                    <label id="Unit">@Model.Unit</label><br />
+                </div>
+                <label id="Desc">Description: @Model.Description</label><br />
+                <span id="QuantityError" style="display: none"></span>
+                <input class="form-control" type="number" name="quantity" id="Quantity" min="1" max="50" placeholder="Add Quantity" onkeypress="ResetButton()" />
+                <button type="button" class="btn btn-info form-control" id="AddCart" name="AddCart" onclick="AddItemToCart()">Add to Cart</button>
+                <button type="button" class="btn btn-info form-control" id="GoBack" name="GoBack" onclick="GoBack()"> << Go Back To @ViewBag.Mode</button>
+                <input type="hidden" value="@ViewBag.Mode" id="hdnFlag" />
+            </div>
+            <div id="snackbar">Cart Updated Successfully!</div>
+        </div>
+
+        <script>
+    var Quantity = document.getElementById("Quantity");
+    var ErrorSpan = document.getElementById("QuantityError");
+    var AddCart = document.getElementById("AddCart");
+    function checkCart() {
+        if (@Model.Quantity!= "Add") {
+             var text = @Model.Quantity + " " + $("#Unit").text() + " in cart";
+            AddCart.innerText = text;
+         }
+    }
     function AddItemToCart() {
-        
-        var Quantity = document.getElementById("Quantity");
-        var ErrorSpan = document.getElementById("QuantityError");
-        var AddCart = document.getElementById("AddCart");
         if (Quantity.value == "") {
             Quantity.focus();
             ErrorSpan.style.display = "block";
             ErrorSpan.innerHTML = "Please enter Quantity!";
         }
-        else if (parseInt(Quantity.value) < 0) {
+        else if (parseFloat(Quantity.value) < 0) {
             Quantity.focus();
             ErrorSpan.style.display = "block";
             ErrorSpan.innerHTML = "Quantity cannot be Negative!";
         }
+        else if ((parseFloat(Quantity.value) - Math.floor(parseFloat(Quantity.value)) != 0) && $("#Unit").text() == "Item"){
+            Quantity.focus();
+            ErrorSpan.style.display = "block";
+            ErrorSpan.innerHTML = "Please enter valid Quantity!";
+        }
+        else if (parseFloat(Quantity.value) > @Model.Stock){
+            Quantity.focus();
+            ErrorSpan.style.display = "block";
+            ErrorSpan.innerHTML = "Sorry! We have only " + @Model.Stock.ToString()+" in Stock";
+        }
         else {
-            ErrorSpan.style.display = "none";
-            var data = { ProductId: @Model.ProductId, Quantity: $("#Quantity").val() };
+           ErrorSpan.style.display = "none";
+            var data = { ProductId: @Model.ProductId, Quantity: Quantity.value};
             $.ajax({
                 type: 'post',
                 data: data,
@@ -51,18 +71,41 @@
                 url: "/Dashboard/AddToCart",
                 success: function (result) {
                     if (result == "Success") {
-                        var text = $("#Quantity").val() + " " + $("#Unit").text() + " in cart";
+                        var text = Quantity.value + " " + $("#Unit").text() + " in cart";
+                        Quantity.value = "";
                         AddCart.innerText = text;
+                        $('#AddCart').attr("disabled", true);
+                        var x = document.getElementById("snackbar");
+                        x.className = "show";
+                        setTimeout(function () { x.className = x.className.replace("show", ""); }, 1000);
+                        setTimeout(function () {
+                            //     location.href = 'Url.Action("ProductDetails", "Dashboard", new {ProductId=Model.ProductId})'
+                            @*if (document.getElementById('hdnFlag').value == "Cart") {
+                                location.href = '@Url.Action("ShowCart", "PlaceOrder")'
+                            }
+                            else if(document.getElementById('hdnFlag').value== "List") {
+                                location.href = '@Url.Action("ShowProducts", "Dashboard")';
+                            }*@
+                            history.go(-1);
+                        }, 1000);
                     }
-
                 }
             });
+            }
         }
-    }
-    function GoBack() {
-        window.history.back();
-    }
-    function EditButton() {
-        AddCart.innerText = "Add to Cart";
-    }
-</script>
+        function ResetButton(){
+               AddCart.innerText = "Add to Cart";
+        }
+
+        function GoBack() {
+             @*if (document.getElementById('hdnFlag').value == "Cart") {
+                     location.href = '@Url.Action("ShowCart", "PlaceOrder")'
+             }
+             else if(document.getElementById('hdnFlag').value== "List") {
+                     location.href = '@Url.Action("ShowProducts", "Dashboard")';
+             }*@
+            history.go(-1);
+        }
+
+        </script>
+    </body>

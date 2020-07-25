@@ -15,11 +15,14 @@ namespace EasyWayGroceries.Models
         public double Price { get; set; }  
         public string Description { get; set; }
         public string Department { get; set; }
-        public int Stock { get; set; }
+        public double Stock { get; set; }
         public string Unit { get; set; }
         [NotMapped]
         public string ImagePath { get; set; }
         [NotMapped]
         public string Quantity { get; set; }
+
+        [NotMapped]
+        public double TotalPrice { get; set; }
     }
 }

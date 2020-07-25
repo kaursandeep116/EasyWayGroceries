@@ -1,5 +1,4 @@
-﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
-@using Microsoft.AspNetCore.Http
+﻿
 <html>
 <head>
     <link href="~/css/DashboardLayoutStyle.css" rel="stylesheet" type="text/css" />
@@ -17,45 +16,19 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     <script>
-        //function noBack() { window.history.forward(); }
-
-        //window.onload = noBack();
-        //window.onpageshow = function (evt) { if (evt.persisted) noBack(); }
-        //window.onunload = function () { void (0); }
-        var perfEntries = performance.getEntriesByType("navigation");
-
-        if (perfEntries[0].type === "back_forward") {
+    var perfEntries = performance.getEntriesByType("navigation");
+    if (perfEntries[0].type === "back_forward") {
             location.reload(true);
         }
     </script>
+
 </head>
 <body>
     <div class="container body-content">
 
-        <div class="coverPicture">
-
-            <div class="_topnav">
-                <img src="~/images/Logo.jpg" id="imageLogo" onclick="location.href='@Url.Action("ShowProducts", "Dashboard")'"/>
-                <div class="_topnav-right">
-
-                    <div class="dropdown">
-                        <button class="AccountButton">Account</button>
-                        <div class="dropdown-content">
-                            <a href="#">Your Account</a>
-                            <a href="../Home/Index">Logout</a>
-                        </div>
-                    </div>
-                    <div id="cartDiv"></div>
-                    <img src="~/images/cart.png" id="cart" onclick="openCart()"><label id="lblCartCount"> @HttpContextAccessor.HttpContext.Session.GetInt32("CartNo")</label>
-                </div>
-            </div>
-        </div>
+        
     </div>
-    <script>
-        function openCart() {
-            location.href = '@Url.Action("ShowCart", "PlaceOrder")';
-        }
-    </script>
+    
 
 
 

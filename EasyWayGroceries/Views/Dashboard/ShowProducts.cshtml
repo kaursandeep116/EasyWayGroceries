@@ -1,0 +1,61 @@
+﻿@model List<ProductsModel>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+
+<head>
+    <link href="~/css/ShowProductSyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Styles/CSS/3.3.6/bootstrap.min.css" type="text/css" />
+</head>
+<body onload="check();">
+
+    <div id="header_div">
+    </div>
+    @*<div id="Department_nav">
+        <ul>
+            <li><a href="#">All Departments</a></li>
+            <li><a href="#">Produce</a></li>
+            <li><a href="#">Dairy</a></li>
+        </ul>
+    </div>*@
+
+    <div class="grid-container" >
+
+        @foreach (var item in Model)
+        {
+            <div class="ItemCard" id="@item.ProductId" onclick="location.href='@Url.Action("ProductDetails", "Dashboard", new { ProductId = item.ProductId, mode="List" })'">
+
+                @if (item.Quantity == "Add")
+                {
+                    <button id="plusButton" type="button">+</button>
+                }
+                else
+                {
+                    <button id="plusButton" type="button" style=" background-color:#ff9f00; border: 0px #ff9f00;color: #fff;font-size: 12px;">@item.Quantity</button>
+                }
+
+                <img src="@Url.Content(item.ImagePath)"  style="width:80%;cursor: pointer;">
+                <label class="productName" data-toggle="modal">@item.ProductName</label><br />
+                <label class="price">$@item.Price per @item.Unit</label>
+            </div>
+        }
+    </div>
+
+</body>
+<script>
+    function check() {
+        //if (HttpContextAccessor.HttpContext.Session.GetInt32("LastSelected") != null) {
+        var id = @HttpContextAccessor.HttpContext.Session.GetString("LastSelected");
+       // alert(id);
+       // document.getElementById(id).scrollIntoView(true);
+        var element = document.getElementById(id);
+        var headerOffset = 340;
+        var elementPosition = element.getBoundingClientRect().top;
+        var offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+
+</script>

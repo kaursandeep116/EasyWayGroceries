@@ -51,7 +51,7 @@ using EasyWayGroceries.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             BeginContext(0, 226, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d5c2a8070997416c90dcf7e9c64a1d4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdae0f2b824f49c5b4633fed16afd89b", async() => {
                 BeginContext(38, 76, true);
                 WriteLiteral("\r\n    <div style=\"padding: 70px;\r\n        margin-left: 70px;\">\r\n        <h3>");
                 EndContext();

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace EasyWayGroceries.Models
 {
-    public class AddItem
+    public class OrderDetails
     {
         [Key]
+        public int OrderId { get; set; }
+        [Key]
         public int ProductId { get; set; }
-        public double TotalPrice { get; set; }
-        public double UnitPrice { get; set; }
-        public float Quantity { get; set; }
     }
 }

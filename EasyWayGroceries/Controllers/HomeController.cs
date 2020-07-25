@@ -41,6 +41,7 @@ namespace EasyWayGroceries.Controllers
             {
                 int count = _dbContext.Registration.Count();
                 model.CustomerId = 10000 + count;
+                model.CartNo = 30000 + count;
                 model.IsVerified = "No";
                 model.ActivationCode = System.Guid.NewGuid().ToString();
                 _dbContext.Add(model);
@@ -89,7 +90,7 @@ namespace EasyWayGroceries.Controllers
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential("developer.sandeep116@gmail.com", "simrankaurks");
+                NetworkCredential NetworkCred = new NetworkCredential("developer.sandeep116@gmail.com", "Sandeep@123");
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = NetworkCred;
                 smtp.Port = 587;

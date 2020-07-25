@@ -70,11 +70,14 @@ D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroc
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.cshtml.g.cs
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\Registration.cshtml.g.cs
 D:\ComIT\EasyWayGroceries11\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csprojAssemblyReference.cache
-D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\Welcome.cshtml.g.cs
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\_ViewStart.cshtml.g.cs
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\Activation.cshtml.g.cs
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Home\PasswordReset.cshtml.g.cs
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\_Dashboard_layout.cshtml.g.cs
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csproj.CoreCompileInputs.cache
-D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csprojAssemblyReference.cache
 D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\ProductDetails.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\Dashboard\ShowProducts.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\EasyWayGroceries.csprojAssemblyReference.cache
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\PlaceOrder\ShowCart.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\PlaceOrder\_ViewStart.cshtml.g.cs
+D:\ComIT\EasywayGroceries\EasyWayGroceries\obj\Debug\netcoreapp2.1\Razor\Views\PlaceOrder\_PlaceOrder_layout.cshtml.g.cs

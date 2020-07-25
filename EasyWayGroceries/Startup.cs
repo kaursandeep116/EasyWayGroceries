@@ -38,6 +38,7 @@ namespace EasyWayGroceries
             services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +64,7 @@ namespace EasyWayGroceries
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Dashboard}/{action=Welcome}/{id?}");
+                    template: "{controller=Dashboard}/{action=ShowProducts}/{id?}");
             });
         }
     }

@@ -12,6 +12,7 @@ namespace EasyWayGroceries.Models
         [Key]
         public int OrderId { get; set; }
         public string status { get; set; }
+        public double total { get; set; }
 
     }
 }

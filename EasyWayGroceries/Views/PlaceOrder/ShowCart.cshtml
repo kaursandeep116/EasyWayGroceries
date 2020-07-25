@@ -1,0 +1,104 @@
+﻿@model List<ProductsModel>
+    <head>
+        <link href="~/css/ShowCartStyle.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body onload="ItemsCount(@Model.Count())">
+    <div id="ContainerDiv">
+        <div id="CartItems">
+            <a href="javascript:history.go(-1)">&#x2190 Go Back to List</a>
+            <table style="width:100%">
+                <tr>
+                    <th>Product</th>
+                    <th>Unit Cost</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src="@Url.Content(item.ImagePath)" style="width:40px;height:40px;" />  @item.ProductName</td>
+
+                        <td><label>$@item.Price </label></td>
+                        <td><label>@item.Quantity @item.Unit</label></td>
+                        <td><label>$@item.TotalPrice</label></td>
+                        <td>
+                            <i class="fa fa-pencil" onclick="location.href='@Url.Action("ProductDetails", "Dashboard", new { ProductId = item.ProductId, mode="Cart" })'"></i>
+                            <i class="fa fa-trash" style="float:right" onclick="remove(@item.ProductId)" title="Delete"></i>
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+        <div id="vertical"></div>
+        <div id="Cost">
+            <button type="button" class="btn btn-info form-control" id="Checkout" name="Checkout" onclick="Checkout()">Checkout</button>
+            <table id="costTable" style="width:100%">
+                <tr>
+                    <td><label>Items Total</label></td>
+                    <td><label style="float:right">@ViewBag.ItemTotal</label></td>
+                </tr>
+                <tr>
+                    <td><label>Delivery Fee</label></td>
+                    <td><label style="float:right">@ViewBag.DeliveryFee</label></td>
+                </tr>
+                <tr>
+                    <td><label>GST/HST</label></td>
+                    <td><label style="float:right">@ViewBag.ServiceTax</label></td>
+                </tr>
+                <tr>
+                    <th><label>Order Total</label></th>
+                    <th><label style="float:right">$@ViewBag.Cost</label></th>
+                </tr>
+            </table>
+
+        </div>
+        <div class="modal fade" id="ShowCheckout" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form id="Checkout">
+                            <div class="form-group">
+                                <span id="CheckoutError"></span>
+                                <div class="input-group">
+                                    <input class="form-control" type="text" name="Address" id="Address" placeholder="Add Address" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" name="MobileNumber" id="MobileNumber" placeholder="Add Mobile Number" />
+                                </div>
+                            </div>
+                          
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+      function ItemsCount(count) {
+          if (count == 0) {
+              history.go(-1);
+          }
+      }
+      function remove(id) {
+           var data = { ProductId: id};
+          $.ajax({
+              type: 'post',
+              data: data,
+              dataType: "json",
+              url: "/PlaceOrder/removeItem",
+              success: function (result) {
+                  window.location.reload();
+              }
+          });
+      }
+      function Checkout() {
+          $("#ShowCheckout").modal();
+      }
+  </script>
+</body>

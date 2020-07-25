@@ -1,0 +1,89 @@
+﻿body {
+
+}
+#ContainerDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    overflow: auto;
+ 
+}
+#CartItems {
+  
+    float: left;
+    width: 70%;
+    height:100%;
+    /*height: auto;*/
+    padding: 30px;
+    background-color: #ffffff
+}
+#vertical {
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 0.06%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+#Cost {
+   
+    float: right;
+    width: 29.94%;
+    height:100%;
+    /*height: auto;*/
+    padding: 30px;
+    background-color: #ffffff
+}
+#CartItems a {
+    text-decoration-color: var(--main_color);
+    color: var(--main_color);
+    font-size:20px;
+    cursor:pointer;
+}
+#Checkout{
+    background-color: var(--main_color);
+    text-align: center;
+    height: 40px;
+    margin-top: 20px;
+    text-decoration-color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    outline: none;
+}
+table {
+    margin-top:30px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+    td i {
+        color: var(--main_color);
+        cursor:pointer;
+        
+    }
+    td label {
+        font-size:17px;
+        font-weight:normal;
+    }
+    td input {
+        font-size:17px;
+        font-weight:normal;
+        width:60px;
+    }
+
+#costTable td label {
+    font-size: 17px;
+    font-weight: normal;
+}
+

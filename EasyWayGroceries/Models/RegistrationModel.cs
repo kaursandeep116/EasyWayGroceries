@@ -18,7 +18,9 @@ namespace EasyWayGroceries.Models
       
         public int CustomerId { get; set; }  
         public string IsVerified { get; set; } 
-        public String ActivationCode { get; set; }
+        public string ActivationCode { get; set; }
+        public int CartNo { get; set; }
+   
 
     }
 }
